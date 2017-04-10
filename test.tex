@@ -1,0 +1,51 @@
+% \documentclass[a4paper,10pt]{article}
+\documentclass[a4paper, 12pt,twoside,plainchapterheads,yschapters, onehalfspace]{amsart}
+\usepackage{SGMPackage}
+
+\title{SGMPackage Commands}
+\date{\today}     
+\begin{document}
+
+For bold characters, let's say a bold $\Ab$, just use \verb| \Ab | in math environment. The same applies for Greek letters, for example $\omegab$ is achieved by \verb| \omegab |. The following is a list of other commands in the package. 
+
+\begin{tabular}{| l | l |}
+\hline
+$\Pair{\cdot}{\cdot}$ & \verb|\Pair{ \cdot }{\cdot } |\\ \hline  %Pairing
+$\PairM{\cdot}{\cdot}{M}$ & \verb|\Pair{ \cdot }{\cdot }{Q}|\\ \hline  %Pairing
+$\Liepair{\cdot}{\cdot}{g}$ & \verb|\Liepair{ \cdot }{\cdot }{g} |\\ \hline
+$\TQpair{\cdot}{\cdot}{Q}$ & \verb|\TQpair{ \cdot }{\cdot }{Q} |\\ \hline
+\Trm & \verb| \Trm| \\ \hline%Not used
+\Psf & \verb| \Psf| \\ \hline%Not used
+\Qsf & \verb| \Qsf| \\ \hline%Not used
+\Tsf & \verb| \Tsf| \\ \hline%Not used
+\TPsf & \verb| \TPsf | \\ \hline%Not used
+\TQsf & \verb| \TQsf | \\ \hline%Not used
+$\TsQsf$ & \verb| \TsQsf | \\ \hline%Not used
+\Gsf & \verb| \Gsf | \\ \hline%Not used
+$\TsGsf$ & \verb| \TsGsf | \\ \hline%Not used
+\SO & \verb| \SO | \\ \hline%SO(3) group
+\TSO & \verb| \TSO | \\ \hline%SO(3) group
+\SOtwo & \verb| \SOtwo | \\ \hline%SO(2)
+\SEthree & \verb| \SEthree | \\ \hline%SO(2)
+\SU & \verb| \SU| \\ \hline%SU(N) group
+$\gfk$ & \verb| \gfk| \\ \hline%Lie algebra
+$\glfk$ & \verb| \glfk| \\ \hline%Lie algebra
+$\se$ & \verb| \se| \\ \hline%so(3)
+$\Hdiv$ & \verb| \Hdiv| \\ \hline
+$\HdivR$ & \verb| \HdivR| \\ \hline
+\EPeqn  & \verb| \EPeqn| \\ \hline
+$\Ad{u}{p}$ & \verb| \Ad| \\ \hline%Adjoint map
+$\ad{u}{p}$ & \verb| \ad{u}{p} | \\ \hline%Adjoint operator
+$\coad{u}{p}$ & \verb| \coad{u}{p} | \\ \hline%coadjoint operator
+$\curl{\Ab}$ & \verb|\curl{\Ab} | \\ \hline%Curl of a vector
+$\curlD{\Ab}$ & \verb|\curlD{\Ab} | \\ \hline%Curl of a vector
+$\divv{\Vb}$ & \verb|\divv{\Vb} | \\ \hline%Divergence operator
+$\divD{\Vb}$ & \verb|\divD{\Vb} | \\ \hline%Divergence operator2
+$\pdiff{u}{x}$ & \verb|\pdiff{u}{x}| \\ \hline 
+$\pdiffhigh{3}{u}{x}$ & \verb|\pdiffhigh{3}{u}{x}| \\ \hline 
+$\fdiff{f}{u}$ & \verb|\fdiff{f}{u}$| \\ \hline 
+    \end{tabular}
+
+
+
+\end{document}
