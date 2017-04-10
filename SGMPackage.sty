@@ -1,0 +1,311 @@
+\NeedsTeXFormat{LaTeX2e}[04/07/2017]
+\ProvidesPackage{SGMPackage}
+  [04/07/2017 v1.1 LaTeX package for stochastic geometric mechanics developed by Nader Ganaba]
+
+\usepackage[T1,OT1]{fontenc}
+\newcommand{\Jcal}{\mathcal{J}}%Cost functional
+\newcommand{\Ucal}{\mathcal{U}}%Control set
+
+
+%Equation names
+\newcommand{\PMP}{Pontryagin Maximum Principle} 
+\newcommand{\EPeqn}{{Euler-Poincar\'{e} equation}}
+\newcommand{\sHJB}{stochastic Hamilton-Jacobi-Bellman } 
+\newcommand{\HJB}{Hamilton-Jacobi-Bellman } 
+
+%Bold Greek symbols
+\newcommand{\alphab}{\boldsymbol{\alpha}} 
+\newcommand{\thetab}{\boldsymbol{\theta}} 
+\newcommand{\taub}{\boldsymbol{\tau}} 
+\newcommand{\betab}{\boldsymbol{\beta}} 
+\newcommand{\varthetab}{\boldsymbol{\vartheta}} 
+\newcommand{\pib}{\boldsymbol{\pi}} 
+\newcommand{\upsilonb}{\boldsymbol{\upsilon}} 
+\newcommand{\gammab}{\boldsymbol{\gamma}} 
+\newcommand{\varpib}{\boldsymbol{\varpi}} 
+\newcommand{\phib}{\boldsymbol{\phi}} 
+\newcommand{\deltab}{\boldsymbol{\delta}} 
+\newcommand{\kappab}{\boldsymbol{\kappa}} 
+\newcommand{\rhob}{\boldsymbol{\rho}} 
+\newcommand{\varphib}{\boldsymbol{\varphi}} 
+\newcommand{\epsilonb}{\boldsymbol{\epsilon}} 
+\newcommand{\lambdab}{\boldsymbol{\lambda}} 
+\newcommand{\varrhob}{\boldsymbol{\varrho}} 
+\newcommand{\chib}{\boldsymbol{\chi}} 
+\newcommand{\varepsilonb}{\boldsymbol{\varepsilon}} 
+\newcommand{\mub}{\boldsymbol{\mu}} 
+\newcommand{\sigmab}{\boldsymbol{\sigma}} 
+\newcommand{\psib}{\boldsymbol{\psi}} 
+\newcommand{\zetab}{\boldsymbol{\zeta}} 
+\newcommand{\nub}{\boldsymbol{\nu}} 
+\newcommand{\varsigmab}{\boldsymbol{\varsigma}} 
+\newcommand{\omegab}{\boldsymbol{\omega}} 
+\newcommand{\etab}{\boldsymbol{\eta}} 
+\newcommand{\xib}{\boldsymbol{\xi}} 
+\newcommand{\Gammab}{\boldsymbol{\Gamma}} 
+\newcommand{\Lambdab}{\boldsymbol{\Lambda}} 
+\newcommand{\Sigmab}{\boldsymbol{\Sigma}} 
+\newcommand{\Psib}{\boldsymbol{\Psi}} 
+\newcommand{\Deltab}{\boldsymbol{\Delta}} 
+\newcommand{\Xib}{\boldsymbol{\Xi}} 
+\newcommand{\Upsilonb}{\boldsymbol{\Upsilon}} 
+\newcommand{\Omegab}{\boldsymbol{\Omega}} 
+\newcommand{\Thetab}{\boldsymbol{\Theta}} 
+\newcommand{\Pib}{\boldsymbol{\Pi}} 
+\newcommand{\Phib}{\boldsymbol{\Phi}} 
+
+%Bold variables
+\newcommand{\ab}{\mathbf{a}} 
+\newcommand{\Ab}{\mathbf{A}} 
+
+\newcommand{\bb}{\mathbf{b}} 
+\newcommand{\Bb}{\mathbf{B}}
+
+\newcommand{\cb}{\mathbf{c}} 
+\newcommand{\Cb}{\mathbf{C}}
+
+\newcommand{\db}{\mathbf{d}} 
+\newcommand{\Db}{\mathbf{D}}
+
+\newcommand{\eb}{\mathbf{e}} 
+\newcommand{\Eb}{\mathbf{E}}
+
+\newcommand{\fb}{\mathbf{f}} 
+\newcommand{\Fb}{\mathbf{F}}
+
+\newcommand{\gb}{\mathbf{g}} 
+\newcommand{\Gb}{\mathbf{G}}
+
+\newcommand{\hb}{\mathbf{h}} 
+\newcommand{\Hb}{\mathbf{H}}
+
+\newcommand{\ib}{\mathbf{i}} 
+\newcommand{\Ib}{\mathbf{I}}
+
+\newcommand{\jb}{\mathbf{j}} 
+\newcommand{\Jb}{\mathbf{J}}
+
+\newcommand{\kb}{\mathbf{k}} 
+\newcommand{\Kb}{\mathbf{K}}
+
+\newcommand{\lb}{\mathbf{l}} 
+\newcommand{\Lb}{\mathbf{L}}
+
+\newcommand{\mb}{\mathbf{m}} 
+\newcommand{\Mb}{\mathbf{M}}
+
+\newcommand{\nb}{\mathbf{n}} 
+\newcommand{\Nb}{\mathbf{N}}
+
+\newcommand{\ob}{\mathbf{o}} 
+\newcommand{\Ob}{\mathbf{O}}
+
+\newcommand{\pb}{\mathbf{p}} 
+\newcommand{\Pb}{\mathbf{P}}
+
+\newcommand{\qb}{\mathbf{q}} 
+\newcommand{\Qb}{\mathbf{Q}}
+
+\newcommand{\rb}{\mathbf{r}} 
+\newcommand{\Rb}{\mathbf{R}}
+
+\newcommand{\ssb}{\mathbf{s}} 
+\newcommand{\Sb}{\mathbf{S}}
+
+\newcommand{\tb}{\mathbf{t}} 
+\newcommand{\Tb}{\mathbf{T}}
+
+\newcommand{\ub}{\mathbf{u}} 
+\newcommand{\Ub}{\mathbf{U}}
+
+\newcommand{\vb}{\mathbf{v}} 
+\newcommand{\Vb}{\mathbf{V}}
+
+\newcommand{\wb}{\mathbf{w}} 
+\newcommand{\Wb}{\mathbf{W}}
+
+\newcommand{\xb}{\mathbf{x}} 
+\newcommand{\Xb}{\mathbf{X}}
+
+\newcommand{\yb}{\mathbf{y}} 
+\newcommand{\Yb}{\mathbf{Y}}
+
+\newcommand{\zb}{\mathbf{z}} 
+\newcommand{\Zb}{\mathbf{Z}}
+
+%Pairings
+\newcommand{\Liepair}[3]{\left\langle {#1}, {#2} \right\rangle_{\mathfrak{{#3}}^{\ast} \times \mathfrak{{#3}}}}
+\newcommand{\TQpair}[3]{\left\langle {#1}, {#2} \right\rangle_{T^{\ast} {{#3}}\times T{{#3}}}}
+\newcommand{\Pair}[2]{\left\langle {#1}, {#2} \right\rangle}
+\newcommand{\PairM}[3]{\left\langle {#1}, {#2} \right\rangle_{{#3}^{\ast}  \times {#3}}}
+%Spaces
+\newcommand{\Trm}{\textrm{T}} 
+\newcommand{\Psf}{\textsf{P}} 
+\newcommand{\Qsf}{\textsf{Q}} 
+\newcommand{\Tsf}{\textsf{T}} 
+\newcommand{\TPsf}{\textsf{TP}} 
+\newcommand{\TsPsf}{\textsf{T}^*\textsf{P}} 
+\newcommand{\TQsf}{\textsf{TQ}} 
+\newcommand{\TsQsf}{\textsf{T}^*\textsf{Q}} 
+\newcommand{\TGsf}{\textsf{TG}} 
+\newcommand{\TsGsf}{\textsf{T}^*\textsf{G}} 
+\newcommand{\Gsf}{\textsf{G}} 
+\newcommand{\SO}{\textsf{SO}(3)} 
+\newcommand{\SOn}[1]{\textsf{SO}({#1})} 
+\newcommand{\TSO}{\textsf{TSO}(3)} 
+\newcommand{\TSOn}[1]{\textsf{TSO}({#1})} 
+\newcommand{\SOtwo}{\textsf{SO}(2)} 
+\newcommand{\SEthree}{\textsf{SE}(3)} 
+\newcommand{\SU}{\textsf{SU}(N)} 
+
+%Lie algebras
+\newcommand{\gfk}{\mathfrak{g}}%Lie algebra
+\newcommand{\glfk}{\mathfrak{gl}}%Lie algebra
+\newcommand{\sothree}{\mathfrak{so}(3)}%so(3)
+\newcommand{\dso}{\mathfrak{so}^{\ast}}%dual so Lie algebra
+\newcommand{\dson}[1]{\mathfrak{so}^{\ast}{#1}}%dual so Lie algebra
+\newcommand{\se}{\mathfrak{se}}%so Lie algebra
+\newcommand{\sen}[1]{\mathfrak{se}{#1}}%so(N)
+
+\newcommand{\Rn}[1]{\mathbb{R}^{#1}}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Hdiv}{\mathbf{H}{(div)}}
+\newcommand{\HdivR}{\mathbf{H}{(div ; \epsilon)}}
+
+\newcommand{\Ito}{{It\={o} }}
+\newcommand{\Diff}[1]{{\textsf{Diff}({#1})}} 
+%\newcommand{\curl}[1]{{\mathbf{curl}({#1})}}%Curl operator
+\newcommand{\curl}[1]{\mathrm{curl}({#1})}
+\newcommand{\curlD}[1]{\nabla \times ({#1})}
+\newcommand{\divv}[1]{{\mathrm{div}({#1})}}% Divergence operator
+\newcommand{\divD}[1]{{\nabla \cdot ({#1})}}% Divergence operator
+
+\newcommand{\drm}{{\rm d}}%Derivative
+\newcommand{\Drm}{{\rm D}}%Derivative
+\newcommand{\Ad}[2]{{\mathrm{Ad}_{#1}{#2}}}%Adjoint map
+\newcommand{\coAd}[2]{{\mathrm{Ad}^{\ast}_{#1}{#2}}}%coAdjoint map
+\newcommand{\ad}[2]{{ \mathrm{ad}_{#1}{#2} }}%adjoint operator
+\newcommand{\coad}[2]{{ \mathrm{ad}^{\ast}_{#1}{#2} }}%coadjoint operator
+\newcommand{\Sum}[2]{{ \sum\limits_{#1}^{#2} }} 
+%\newcommand{\pdiff}[2] {{\frac{\partial {#1}}{\partial {#2}}}}
+\newcommand{\Expt}[1] {\mathbb{E} \left[ {#1} \right]} %Expectation
+\newcommand{\pdiff}[2] {{\frac{\partial {#1}}{\partial {#2}}}} %Partial derivative
+\newcommand{\fdiff}[2] {{\frac{\delta {#1}}{\delta {#2}}}} %Functional derivative 
+\newcommand{\pdiffhigh}[3] {{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}} %Higher order partial derivative
+%\newcommand{\Lie}[1]{\pounds_{#1}}  %Lie derivative
+\newcommand{\Lie}[2]{\pounds_{#1}{#2}}  %Lie derivative
+\newcommand{\Tr}[1]{\mathrm{Tr}{\left(#1 \right)}}  %Trace
+
+\newcommand{\Exp}[2]{{ \textrm{Exp}_{#1} \left({#2}\right) }} 
+\newcommand{\Log}[2]{{ \textrm{Log}_{#1} \left({#2}\right) }} 
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\beas}{\begin{eqnarray*}}
+\newcommand{\eeas}{\end{eqnarray*}}
+\newcommand{\la}{\label}
+\newcommand{\T}{^{\mbox{\small T}}}
+
+
+%Other packages 
+\usepackage{geometry} 
+\geometry{a4paper}
+\usepackage{graphicx}	
+\usepackage{amssymb, amsmath, amsthm}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+
+\setlength{\textheight}{23cm} \setlength{\textwidth}{15cm}
+\setlength{\topmargin}{-0.7cm}
+\setlength{\parskip}{0.3\baselineskip} \hoffset=-0.8cm
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{intersections, backgrounds}
+\definecolor{highlight}{RGB}{180, 31, 180}
+\definecolor{gray80}{gray}{0.8}
+
+\newcommand{\dd}{ \mathrm{d} }
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{plain}
+
+\numberwithin{equation}{section}
+% \contract  contraction sign _|
+\def\contract{\makebox[1.2em][c]{\mbox{\rule{.6em}
+{.01truein}\rule{.01truein}{.6em}}}}
+
+%%% TodoDH
+\newcommand{\todoDH}[1]{\vspace{5 mm}\par \noindent
+\framebox{\begin{minipage}[c]{0.95 \textwidth}
+\color{red}\tt DH: #1 \end{minipage}}\vspace{5 mm}\par}
+%%%
+
+%%% TodoAA
+\newcommand{\todoAA}[1]{\vspace{5 mm}\par \noindent
+\framebox{\begin{minipage}[c]{0.95 \textwidth}
+\tt \color{blue} AA: #1 \end{minipage}}\vspace{5 mm}\par}
+%%%
+%%% TodoNG
+\newcommand{\todoNG}[1]{\vspace{5 mm}\par \noindent
+\framebox{\begin{minipage}[c]{0.95 \textwidth}
+\tt \color{red} NG: #1 \end{minipage}}\vspace{5 mm}\par}
+%%%
+
+%\newcommand{\Bbox}[1]{\vspace{5 mm}\par \noindent
+%\framebox{\begin{minipage}[c]{0.5 \textwidth}
+%\tt\color{red} #1 \end{minipage}}\vspace{5 mm}\par}
+%%%%
+%
+%\newcommand{\blue}[1]{\color{blue} #1}
+%%\newcommand{\blue}[1]{ #1}
+%
+%  \renewcommand\section{\@startsection {section}{1}{\parindent}%
+%                                     {\medskipamount}%
+%                                     {-10pt}%
+%                                     {\normalsize\upshape\bfseries\mathversion{bold}}}
+%
+%  \renewcommand\subsection{\@startsection {subsection}{2}{\parindent}%
+%                                     {\medskipamount}%
+%                                     {-10pt}%
+%                                     {\subsection@shape}}
+%  \def\subsection@shape{\normalsize\itshape}
+%  \def\subsection@prefix{\upshape}
+%
+%  \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\parindent}%
+%                                       {\medskipamount}%
+%                                       {-10pt}%
+%                                       {\normalsize\itshape}}
+%  \def\subsubsection@prefix{\upshape}
+%
+%  \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+%                                      {\smallskipamount}%
+%                                      {-1em}%
+%                                      {\normalsize\itshape}}
+%  \renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
+%                                         {0.1pt}%
+%                                         {-1em}%
+%                                         {\normalsize\itshape}}
+%
+%% must be used for the appendix \section and \thebibliography
+%  \renewcommand\specialsection{\@startsection {section}{1}{\z@}%
+%                                   {\medskipamount}%
+%                                   {\smallskipamount}%
+%                                   {\normalsize\centering\MakeUppercase}}
+%
+%\def\runtitle#1{\gdef\@runtitle{\runninghead@case{#1}}}                      \def\@runtitle{}
+%\def\runauthor#1{{\def\etal{et al.}\gdef\@runauthor{\runninghead@case{#1}}}} \def\@runauthor{}
